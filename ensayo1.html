@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style></style>
+<body>
+    <canvas id="maze"></canvas>
+    <script>
+        const mazeEl = document.getElementById('maze');
+        const ctx = mazeEl.getContext('2d');
+        let genrationComplete=false;
+        let current, goal;
+        class Maze{
+            constructor(size, rows, cols){
+                this.size = size;
+                this.rows = rows;
+                this.cols = cols;
+                this.grid = [];
+                this.stack = [];
+            }
+            setup(){
+                for (let r = 0; r < this.rows; r++) {
+                    let errow = [];
+                    for (let c = 0; c < this.cols; c++) {
+                        let cell = new Cell(r, c);
+                        errow.push(cell);
+                    }
+                }
+            }
+        }
+        class Cell{
+            constructor(r, c, prantGrid, prentSize){
+                this.r = r;
+                this.c = c;
+                this.prantGrid = prantGrid;
+                this.prentSize = prentSize;
+                this.visited = false;
+                this.walls = {
+                    top: true,
+                    right: true,
+                    bottom: true,
+                    left: true
+                }
+                this.goal = false;
+                this.visited = false;
+            }
+            checkNeighbours(){
+                let grid = this.prantGrid;
+                let row = this.r;
+                let col = this.c;
+                let neighbours = [];
+                let top = row;
+                return top;
+            }
+        }
+        const maze = new Maze(500, 20, 20);
+        const celula= new Cell(0, 0, maze, 500);
+        console.log(celula.checkNeighbours());
+    </script>
+</body>
+</html>
