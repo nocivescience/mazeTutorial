@@ -101,6 +101,7 @@ class Cell {
     // parentSize is passed in to set the size of each cell on the grid
     this.parentGrid = parentGrid;
     this.parentSize = parentSize;
+    this.colors = ["red", "blue", "green", "yellow"];
   }
 
   checkNeighbours() {
@@ -115,6 +116,10 @@ class Cell {
     let right = col !== grid.length - 1 ? grid[row][col + 1] : undefined;
     let bottom = row !== grid.length - 1 ? grid[row + 1][col] : undefined;
     let left = col !== 0 ? grid[row][col - 1] : undefined;
+    this.top= top;
+    this.right= right;
+    this.bottom= bottom;
+    this.left= left; 
 
     // if the following are not 'undefined' then push them to the neighbours array
     if (top && !top.visited) neighbours.push(top);
@@ -135,8 +140,22 @@ class Cell {
   drawTopWall(x, y, size, columns, rows) {
     ctx.beginPath();
     ctx.moveTo(x, y);
+    if(this.top===undefined){
+      ctx.fillStyle = "red";
+    }else if(this.bottom===undefined){
+      ctx.fillStyle = "red";
+    }else if(this.left===undefined){
+      ctx.fillStyle = "red";
+    }else if(this.right===undefined){
+      ctx.fillStyle = "red";
+    }else{
+      ctx.fillStyle = "yellow";
+    }
     ctx.lineTo(x + size / columns, y);
+    // ctx.lineWidth = 2;
+    // ctx.strokeStyle = "red";
     ctx.stroke();
+    ctx.fill();
   }
 
   drawRightWall(x, y, size, columns, rows) {
