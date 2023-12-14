@@ -153,7 +153,7 @@ class Cell {
     }
     ctx.lineTo(x + size / columns, y);
     // ctx.lineWidth = 2;
-    // ctx.strokeStyle = "red";
+    ctx.strokeStyle = "orange";
     ctx.stroke();
     ctx.fill();
   }
@@ -161,6 +161,7 @@ class Cell {
   drawRightWall(x, y, size, columns, rows) {
     ctx.beginPath();
     ctx.moveTo(x + size / columns, y);
+    ctx.strokeStyle = "green";
     ctx.lineTo(x + size / columns, y + size / rows);
     ctx.stroke();
   }
@@ -168,6 +169,7 @@ class Cell {
   drawBottomWall(x, y, size, columns, rows) {
     ctx.beginPath();
     ctx.moveTo(x, y + size / rows);
+    ctx.strokeStyle = "green";
     ctx.lineTo(x + size / columns, y + size / rows);
     ctx.stroke();
   }
@@ -175,6 +177,7 @@ class Cell {
   drawLeftWall(x, y, size, columns, rows) {
     ctx.beginPath();
     ctx.moveTo(x, y);
+    ctx.strokeStyle = "green";
     ctx.lineTo(x, y + size / rows);
     ctx.stroke();
   }
